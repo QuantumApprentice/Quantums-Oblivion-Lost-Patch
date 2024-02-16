@@ -134,7 +134,7 @@ end
 
 procedure spatial_p_proc begin
    if (source_obj == dude_obj) then begin
-      if (global_var(727) == 10) then begin
+      if ((global_var(727) == 10) and ((global_var(736) == 3) or (global_var(736) == 4))) then begin
          load_map("avtory", 1);
       end
    end
