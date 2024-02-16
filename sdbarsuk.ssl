@@ -1,0 +1,357 @@
+variable ProtoOfItemGiven;
+variable ValueOfRollCheck := 1;
+variable Scenery_Creation;
+variable Scenery_Creation_Hex;
+variable Scenery_Creation_Count;
+variable Temp_Scenery_Creation_Hex;
+variable Scenery_Creation_Ptr;
+variable How_Many_Party_Members_Are_Injured;
+variable How_Many_Party_Members_Armed;
+variable PartyHealingItem;
+
+procedure checkPartyMembersNearDoor;
+
+variable global_temp;
+variable dest_tile;
+variable step_tile;
+variable in_dialog;
+variable forced_node;
+variable restock_amt;
+variable restock_obj;
+variable restock_trash;
+variable removed_qty;
+variable vor;
+
+procedure start;
+procedure critter_p_proc;
+procedure description_p_proc;
+procedure look_at_p_proc;
+procedure pickup_p_proc;
+procedure talk_p_proc;
+procedure destroy_p_proc;
+procedure use_skill_on_p_proc;
+procedure damage_p_proc;
+procedure Node001;
+procedure Node999;
+procedure Node998;
+procedure Node010;
+procedure Node002;
+procedure Node003;
+procedure Node004;
+procedure Node005;
+procedure Node011;
+procedure Node012;
+procedure Node013;
+procedure Node014;
+procedure Node015;
+procedure Node016;
+procedure Node017;
+
+
+procedure checkPartyMembersNearDoor begin
+   if (party_member_obj(16777278) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777278)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777376) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777376)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777377) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777377)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777305) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777305)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777313) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777313)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777323) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777323)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777352) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777352)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777378) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777378)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777368) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777368)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777379) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777379)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777380) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777380)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777295) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777295)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777381) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777381)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777407) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777407)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777411) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777411)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777412) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777412)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777413) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777413)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777481) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777481)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777558) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777558)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777600) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777600)) <= 5) then begin
+         return 1;
+      end
+   end
+   return 0;
+end
+
+procedure start begin
+   if (local_var(2) == 0) then begin
+      set_local_var(2, 1);
+      critter_add_trait(self_obj, 1, 6, 302);
+      critter_add_trait(self_obj, 1, 5, 194);
+      set_local_var(3, random(45, 85));
+   end
+end
+
+procedure critter_p_proc begin
+   if ((local_var(0) == 1) and obj_can_see_obj(self_obj, dude_obj)) then begin
+      set_local_var(0, 0);
+      attack_setup(self_obj, dude_obj);
+   end
+end
+
+procedure description_p_proc begin
+   if (local_var(1) == 0) then begin
+      script_overrides;
+      display_msg(message_str(1432, 2));
+   end
+   if (local_var(1) == 1) then begin
+      script_overrides;
+      display_msg(message_str(1432, 4));
+   end
+end
+
+procedure look_at_p_proc begin
+   if (local_var(1) == 0) then begin
+      script_overrides;
+      display_msg(message_str(1432, 1));
+   end
+   if (local_var(1) == 1) then begin
+      script_overrides;
+      display_msg(message_str(1432, 3));
+   end
+end
+
+procedure pickup_p_proc begin
+   if (vor == 0) then begin
+      vor := 1;
+      float_msg(self_obj, message_str(1308, random(20, 26)), 2);
+      set_local_var(3, local_var(3) + random(5, 10));
+   end
+   else begin
+      vor := 0;
+      set_local_var(0, 1);
+   end
+end
+
+procedure talk_p_proc begin
+   if ((map_var(0) == 1) or (map_var(0) == 3)) then begin
+      if (local_var(1) == 0) then begin
+         start_gdialog(1432, self_obj, -1, -1, -1);
+         gsay_start;
+         call Node001();
+         gsay_end;
+         end_dialogue;
+      end
+      else begin
+         start_gdialog(1432, self_obj, -1, -1, -1);
+         gsay_start;
+         call Node010();
+         gsay_end;
+         end_dialogue;
+      end
+   end
+   else begin
+      float_msg(self_obj, message_str(1432, random(1000, 1009)), 0);
+   end
+end
+
+procedure destroy_p_proc begin
+end
+
+procedure use_skill_on_p_proc begin
+   if (action_being_used == 10) then begin
+      if (has_skill(dude_obj, 10) < local_var(3)) then begin
+         script_overrides;
+         call pickup_p_proc();
+      end
+   end
+end
+
+procedure damage_p_proc begin
+   if (source_obj == dude_obj) then begin
+      set_local_var(0, 1);
+   end
+end
+
+procedure Node001 begin
+   gsay_reply(1432, 10);
+   gsay_option(1432, 11, Node002, -1);
+   gsay_option(1432, 12, Node999, -1);
+end
+
+procedure Node999 begin
+end
+
+procedure Node998 begin
+   set_local_var(0, 1);
+end
+
+procedure Node010 begin
+   if (((global_var(764) bwand 32) != 0) and (global_var(761) != 0)) then begin
+      set_global_var(761, 9);
+   end
+   gsay_reply(1432, 100);
+   gsay_option(1432, 101, Node999, -1);
+   if ((global_var(760) > 0) and (global_var(760) < 10)) then begin
+      gsay_option(1432, 102, Node011, -1);
+   end
+   if ((global_var(761) > 0) and (global_var(761) < 10)) then begin
+      gsay_option(1432, 103, Node016, -1);
+   end
+end
+
+procedure Node002 begin
+   gsay_reply(1432, 13);
+   gsay_option(1432, message_str(1432, 14) + obj_name(dude_obj) + message_str(1432, 15), Node003, -1);
+end
+
+procedure Node003 begin
+   gsay_reply(1432, 16);
+   gsay_option(1432, 17, Node004, -1);
+end
+
+procedure Node004 begin
+   gsay_reply(1432, 18);
+   gsay_option(1432, 19, Node005, -1);
+end
+
+procedure Node005 begin
+   set_local_var(1, 1);
+   set_map_var(0, 3);
+   set_global_var(760, 1);
+   add_obj_to_inven(dude_obj, create_object_sid(533, 0, 0, -1));
+   add_obj_to_inven(dude_obj, create_object_sid(549, 0, 0, -1));
+   gsay_reply(1432, 20);
+   gsay_option(1432, 21, Node999, -1);
+end
+
+procedure Node011 begin
+   gsay_reply(1432, 110);
+   if (global_var(760) == 1) then begin
+      gsay_option(1432, 111, Node012, -1);
+   end
+   gsay_option(1432, 112, Node999, -1);
+   if (global_var(760) == 9) then begin
+      gsay_option(1432, 113, Node013, -1);
+   end
+   if (global_var(760) == 9) then begin
+      gsay_option(1432, 114, Node014, -1);
+   end
+end
+
+procedure Node012 begin
+   set_global_var(760, 2);
+   gsay_reply(1432, 120);
+   gsay_option(1432, 121, Node999, -1);
+end
+
+procedure Node013 begin
+   gsay_reply(1432, 130);
+   gsay_option(1432, 131, Node998, -1);
+end
+
+procedure Node014 begin
+   variable LVar0 := 0;
+   LVar0 := floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2) * random(50, 70);
+   give_exp_points(random(120, 160) * floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2));
+   display_msg(message_str(1308, random(140, 143)) + (random(120, 160) * floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2)) + message_str(1308, 144));
+   set_global_var(global_var(0), global_var(0) - random(40, 60));
+   set_global_var(760, 10);
+   gsay_reply(1432, 140);
+   gsay_option(1432, 141, Node015, -1);
+end
+
+procedure Node015 begin
+   set_global_var(761, 1);
+   gsay_reply(1432, 150);
+   gsay_option(1432, 151, Node999, -1);
+end
+
+procedure Node016 begin
+   gsay_reply(1432, 160);
+   if (global_var(761) == 9) then begin
+      gsay_option(1432, 161, Node017, -1);
+   end
+   gsay_option(1432, 162, Node999, -1);
+end
+
+procedure Node017 begin
+   variable LVar0 := 0;
+   LVar0 := floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2) * random(50, 70);
+   give_exp_points(random(480, 520) * floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2));
+   display_msg(message_str(1308, random(140, 143)) + (random(480, 520) * floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2)) + message_str(1308, 144));
+   set_global_var(761, 10);
+   set_global_var(654, 1);
+   gsay_reply(1432, 170);
+   gsay_option(1432, 171, Node999, -1);
+end
+

@@ -1,0 +1,610 @@
+variable ProtoOfItemGiven;
+variable ValueOfRollCheck := 1;
+variable Scenery_Creation;
+variable Scenery_Creation_Hex;
+variable Scenery_Creation_Count;
+variable Temp_Scenery_Creation_Hex;
+variable Scenery_Creation_Ptr;
+variable How_Many_Party_Members_Are_Injured;
+variable How_Many_Party_Members_Armed;
+variable PartyHealingItem;
+
+procedure checkPartyMembersNearDoor;
+
+variable global_temp;
+variable dest_tile;
+variable step_tile;
+variable in_dialog;
+variable forced_node;
+variable restock_amt;
+variable restock_obj;
+variable restock_trash;
+variable removed_qty;
+variable i;
+
+procedure start;
+procedure map_enter_p_proc;
+procedure map_update_p_proc;
+procedure Initial_Inven;
+
+export variable Nagor_Tile;
+
+procedure aktivacija;
+procedure timed_event_p_proc;
+procedure map_exit_p_proc;
+
+
+procedure checkPartyMembersNearDoor begin
+   if (party_member_obj(16777278) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777278)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777376) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777376)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777377) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777377)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777305) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777305)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777313) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777313)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777323) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777323)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777352) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777352)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777378) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777378)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777368) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777368)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777379) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777379)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777380) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777380)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777295) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777295)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777381) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777381)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777407) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777407)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777411) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777411)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777412) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777412)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777413) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777413)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777481) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777481)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777558) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777558)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777600) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777600)) <= 5) then begin
+         return 1;
+      end
+   end
+   return 0;
+end
+
+procedure start begin
+end
+
+procedure map_enter_p_proc begin
+   variable LVar0 := 0;
+   if (metarule(14, 0)) then begin
+      if (obj_name(dude_obj) == "Boberr") then begin
+         critter_mod_skill(dude_obj, 0, 220);
+         critter_mod_skill(dude_obj, 1, 220);
+         critter_mod_skill(dude_obj, 2, 220);
+         critter_mod_skill(dude_obj, 3, 220);
+         critter_mod_skill(dude_obj, 4, 220);
+         critter_mod_skill(dude_obj, 5, 220);
+         critter_mod_skill(dude_obj, 6, 220);
+         critter_mod_skill(dude_obj, 7, 220);
+         critter_mod_skill(dude_obj, 8, 220);
+         critter_mod_skill(dude_obj, 9, 220);
+         critter_mod_skill(dude_obj, 10, 220);
+         critter_mod_skill(dude_obj, 11, 220);
+         critter_mod_skill(dude_obj, 12, 220);
+         critter_mod_skill(dude_obj, 13, 220);
+         critter_mod_skill(dude_obj, 14, 220);
+         critter_mod_skill(dude_obj, 15, 220);
+         critter_mod_skill(dude_obj, 16, 220);
+         critter_mod_skill(dude_obj, 17, 220);
+         critter_add_trait(dude_obj, 0, 84, 1);
+         critter_add_trait(dude_obj, 0, 85, 1);
+         critter_add_trait(dude_obj, 0, 86, 1);
+         critter_add_trait(dude_obj, 0, 87, 1);
+         critter_add_trait(dude_obj, 0, 88, 1);
+         critter_add_trait(dude_obj, 0, 89, 1);
+         critter_add_trait(dude_obj, 0, 90, 1);
+         if (metarule(17, 53) == 0) then begin
+            debug_msg("  mark_on_map(" + 53 + ")");
+            mark_area_known(0, 53, 1);
+         end
+         if (metarule(17, 54) == 0) then begin
+            debug_msg("  mark_on_map(" + 54 + ")");
+            mark_area_known(0, 54, 1);
+         end
+         if (metarule(17, 55) == 0) then begin
+            debug_msg("  mark_on_map(" + 55 + ")");
+            mark_area_known(0, 55, 1);
+         end
+         if (metarule(17, 56) == 0) then begin
+            debug_msg("  mark_on_map(" + 56 + ")");
+            mark_area_known(0, 56, 1);
+         end
+         if (metarule(17, 57) == 0) then begin
+            debug_msg("  mark_on_map(" + 57 + ")");
+            mark_area_known(0, 57, 1);
+         end
+         if (metarule(17, 58) == 0) then begin
+            debug_msg("  mark_on_map(" + 58 + ")");
+            mark_area_known(0, 58, 1);
+         end
+         if (metarule(17, 61) == 0) then begin
+            debug_msg("  mark_on_map(" + 61 + ")");
+            mark_area_known(0, 61, 1);
+         end
+      end
+      play_gmovie(3);
+      display_msg(message_str(27, 100));
+      call Initial_Inven();
+      set_global_var(0, global_var(0) + 15);
+      debug_msg("Player gains " + 15 + " Karma Points.");
+      set_global_var(37, 0);
+      set_global_var(38, 0);
+      set_global_var(39, 0);
+      set_global_var(40, 0);
+      set_global_var(41, 0);
+      set_global_var(42, 0);
+      set_global_var(43, 0);
+      set_global_var(44, 0);
+      set_global_var(45, 0);
+      if (global_var(0) >= 1000) then begin
+         set_global_var(37, 1);
+      end
+      else begin
+         if (global_var(0) >= 750) then begin
+            set_global_var(38, 1);
+         end
+         else begin
+            if (global_var(0) >= 500) then begin
+               set_global_var(39, 1);
+            end
+            else begin
+               if (global_var(0) >= 250) then begin
+                  set_global_var(40, 1);
+               end
+               else begin
+                  if (global_var(0) > -250) then begin
+                     set_global_var(41, 1);
+                  end
+                  else begin
+                     if (global_var(0) > -500) then begin
+                        set_global_var(42, 1);
+                     end
+                     else begin
+                        if (global_var(0) > -750) then begin
+                           set_global_var(43, 1);
+                        end
+                        else begin
+                           if (global_var(0) > -1000) then begin
+                              set_global_var(44, 1);
+                           end
+                           else begin
+                              set_global_var(45, 1);
+                           end
+                        end
+                     end
+                  end
+               end
+            end
+         end
+      end
+      set_global_var(47, global_var(47) + 15);
+      display_msg(message_str(14, 1009));
+      if (global_var(10) == 0) then begin
+         set_global_var(10, 3);
+         LVar0 := 300 + 300;
+         give_exp_points(LVar0);
+         display_msg(message_str(14, 100) + LVar0 + message_str(14, 101));
+      end
+      else begin
+         if (global_var(10) == 2) then begin
+            LVar0 := 300 + 300;
+            give_exp_points(LVar0);
+            display_msg(message_str(14, 100) + LVar0 + message_str(14, 101));
+         end
+         else begin
+            give_exp_points(300);
+            display_msg(message_str(14, 100) + 300 + message_str(14, 101));
+         end
+      end
+   end
+   if (game_ui_is_disabled == 1) then begin
+      fadeOut(100);
+      fadeIn(1000);
+      game_ui_enable;
+   end
+   if ((get_month >= 3) and (get_month < 5)) then begin
+      if ((game_time_hour >= 600) and (game_time_hour < (600 + 100))) then begin
+         set_light_level(game_time_hour - 600 + 40);
+      end
+      else begin
+         if ((game_time_hour >= (600 + 100)) and (game_time_hour < 1800)) then begin
+            set_light_level(100);
+         end
+         else begin
+            if ((game_time_hour >= 1800) and (game_time_hour < (1800 + 100))) then begin
+               set_light_level(100 - (game_time_hour - 1800));
+            end
+            else begin
+               set_light_level(40);
+            end
+         end
+      end
+   end
+   else begin
+      if ((get_month >= 5) and (get_month < 9)) then begin
+         if ((game_time_hour >= 500) and (game_time_hour < (500 + 100))) then begin
+            set_light_level(game_time_hour - 500 + 40);
+         end
+         else begin
+            if ((game_time_hour >= (500 + 100)) and (game_time_hour < 1900)) then begin
+               set_light_level(100);
+            end
+            else begin
+               if ((game_time_hour >= 1900) and (game_time_hour < (1900 + 100))) then begin
+                  set_light_level(100 - (game_time_hour - 1900));
+               end
+               else begin
+                  set_light_level(40);
+               end
+            end
+         end
+      end
+      else begin
+         if ((get_month >= 9) and (get_month < 11)) then begin
+            if ((game_time_hour >= 600) and (game_time_hour < (600 + 100))) then begin
+               set_light_level(game_time_hour - 600 + 40);
+            end
+            else begin
+               if ((game_time_hour >= (600 + 100)) and (game_time_hour < 1800)) then begin
+                  set_light_level(100);
+               end
+               else begin
+                  if ((game_time_hour >= 1800) and (game_time_hour < (1800 + 100))) then begin
+                     set_light_level(100 - (game_time_hour - 1800));
+                  end
+                  else begin
+                     set_light_level(40);
+                  end
+               end
+            end
+         end
+         else begin
+            if ((game_time_hour >= 700) and (game_time_hour < (700 + 100))) then begin
+               set_light_level(game_time_hour - 700 + 40);
+            end
+            else begin
+               if ((game_time_hour >= (700 + 100)) and (game_time_hour < 1700)) then begin
+                  set_light_level(100);
+               end
+               else begin
+                  if ((game_time_hour >= 1700) and (game_time_hour < (1700 + 100))) then begin
+                     set_light_level(100 - (game_time_hour - 1700));
+                  end
+                  else begin
+                     set_light_level(40);
+                  end
+               end
+            end
+         end
+      end
+   end
+   i := 28711;
+   if ((obj_carrying_pid_obj(dude_obj, 366) != 0) or (obj_carrying_pid_obj(dude_obj, 618) != 0) and (map_var(5) == 0)) then begin
+      metarule3(108, 28711, 0, 0);
+      set_map_var(5, 1);
+      call aktivacija();
+   end
+   if (global_var(727) == 10) then begin
+      if (((global_var(766) bwand 4) != 0) and ((global_var(766) bwand 2) == 0)) then begin
+         set_global_var(735, 1);
+      end
+      if (((global_var(766) bwand 4) != 0) and ((global_var(766) bwand 2) != 0)) then begin
+         set_global_var(735, 2);
+      end
+      if ((global_var(766) bwand 8) != 0) then begin
+         set_global_var(735, 3);
+      end
+      if (((global_var(766) bwand 4) == 0) and ((global_var(766) bwand 2) != 0)) then begin
+         set_global_var(735, 4);
+      end
+      if (((global_var(766) bwand 4) == 0) and ((global_var(766) bwand 2) == 0) and (global_var(0) < 300)) then begin
+         set_global_var(735, 5);
+      end
+      if (((global_var(766) bwand 4) == 0) and ((global_var(766) bwand 2) == 0) and (global_var(0) >= 300)) then begin
+         set_global_var(735, 6);
+      end
+      if (global_var(760) == 10) then begin
+         set_global_var(737, 3);
+      end
+      else begin
+         if (global_var(755) == 10) then begin
+            set_global_var(737, 2);
+         end
+         else begin
+            set_global_var(737, 1);
+         end
+      end
+      if (global_var(653) != 0) then begin
+         set_global_var(738, 3);
+      end
+      else begin
+         if (global_var(758) == 10) then begin
+            set_global_var(738, 2);
+         end
+         else begin
+            set_global_var(738, 1);
+         end
+      end
+      if (global_var(754) == 10) then begin
+         set_global_var(739, 3);
+      end
+      else begin
+         if (global_var(747) == 10) then begin
+            set_global_var(739, 2);
+         end
+         else begin
+            set_global_var(739, 1);
+         end
+      end
+      endgame_slideshow;
+   end
+   set_global_var(27, 0);
+end
+
+procedure map_update_p_proc begin
+   if ((get_month >= 3) and (get_month < 5)) then begin
+      if ((game_time_hour >= 600) and (game_time_hour < (600 + 100))) then begin
+         set_light_level(game_time_hour - 600 + 40);
+      end
+      else begin
+         if ((game_time_hour >= (600 + 100)) and (game_time_hour < 1800)) then begin
+            set_light_level(100);
+         end
+         else begin
+            if ((game_time_hour >= 1800) and (game_time_hour < (1800 + 100))) then begin
+               set_light_level(100 - (game_time_hour - 1800));
+            end
+            else begin
+               set_light_level(40);
+            end
+         end
+      end
+   end
+   else begin
+      if ((get_month >= 5) and (get_month < 9)) then begin
+         if ((game_time_hour >= 500) and (game_time_hour < (500 + 100))) then begin
+            set_light_level(game_time_hour - 500 + 40);
+         end
+         else begin
+            if ((game_time_hour >= (500 + 100)) and (game_time_hour < 1900)) then begin
+               set_light_level(100);
+            end
+            else begin
+               if ((game_time_hour >= 1900) and (game_time_hour < (1900 + 100))) then begin
+                  set_light_level(100 - (game_time_hour - 1900));
+               end
+               else begin
+                  set_light_level(40);
+               end
+            end
+         end
+      end
+      else begin
+         if ((get_month >= 9) and (get_month < 11)) then begin
+            if ((game_time_hour >= 600) and (game_time_hour < (600 + 100))) then begin
+               set_light_level(game_time_hour - 600 + 40);
+            end
+            else begin
+               if ((game_time_hour >= (600 + 100)) and (game_time_hour < 1800)) then begin
+                  set_light_level(100);
+               end
+               else begin
+                  if ((game_time_hour >= 1800) and (game_time_hour < (1800 + 100))) then begin
+                     set_light_level(100 - (game_time_hour - 1800));
+                  end
+                  else begin
+                     set_light_level(40);
+                  end
+               end
+            end
+         end
+         else begin
+            if ((game_time_hour >= 700) and (game_time_hour < (700 + 100))) then begin
+               set_light_level(game_time_hour - 700 + 40);
+            end
+            else begin
+               if ((game_time_hour >= (700 + 100)) and (game_time_hour < 1700)) then begin
+                  set_light_level(100);
+               end
+               else begin
+                  if ((game_time_hour >= 1700) and (game_time_hour < (1700 + 100))) then begin
+                     set_light_level(100 - (game_time_hour - 1700));
+                  end
+                  else begin
+                     set_light_level(40);
+                  end
+               end
+            end
+         end
+      end
+   end
+end
+
+procedure Initial_Inven begin
+end
+
+procedure aktivacija begin
+   game_ui_disable;
+   move_to(dude_obj, 28711, 0);
+   add_timer_event(self_obj, 1, 777);
+   set_map_music(4, "akiss");
+end
+
+procedure timed_event_p_proc begin
+   if (fixed_param == 777) then begin
+      animate_move_obj_to_tile(dude_obj, 25311, 0 bwor 16);
+      metarule3(108, 28711, 0, 0);
+      add_timer_event(self_obj, 30, 778);
+   end
+   if (fixed_param == 778) then begin
+      i := i - 200;
+      if (i != 25111) then begin
+         metarule3(108, i, 0, 0);
+         add_timer_event(self_obj, 1, 778);
+      end
+      else begin
+         add_timer_event(self_obj, 50, 779);
+      end
+   end
+   if (fixed_param == 779) then begin
+      float_msg(dude_obj, message_str(1308, 230), 3);
+      reg_anim_func(2, dude_obj);
+      reg_anim_func(1, 2);
+      reg_anim_animate(dude_obj, 10, -1);
+      reg_anim_func(3, 0);
+      add_timer_event(self_obj, 8, 780);
+   end
+   if (fixed_param == 780) then begin
+      set_map_var(7, create_object_sid(618, 25111, 0, -1));
+      add_timer_event(self_obj, 30, 781);
+   end
+   if (fixed_param == 781) then begin
+      float_msg(dude_obj, message_str(1308, 238), 3);
+      float_msg(map_var(6), message_str(1308, 231), 3);
+      reg_anim_func(2, map_var(6));
+      reg_anim_func(1, 2);
+      reg_anim_animate(map_var(6), 11, -1);
+      reg_anim_func(3, 0);
+      add_timer_event(self_obj, 30, 782);
+   end
+   if (fixed_param == 782) then begin
+      float_msg(map_var(6), message_str(1308, 232), 3);
+      add_timer_event(self_obj, 40, 783);
+   end
+   if (fixed_param == 783) then begin
+      reg_anim_func(2, dude_obj);
+      reg_anim_func(1, 2);
+      reg_anim_animate(dude_obj, 10, -1);
+      reg_anim_func(3, 0);
+      add_timer_event(self_obj, 15, 784);
+   end
+   if (fixed_param == 784) then begin
+      float_msg(map_var(6), message_str(1308, 238), 3);
+      float_msg(dude_obj, message_str(1308, 233), 0);
+      add_timer_event(self_obj, 40, 785);
+   end
+   if (fixed_param == 785) then begin
+      float_msg(dude_obj, message_str(1308, 238), 3);
+      float_msg(map_var(6), message_str(1308, 234), 7);
+      add_timer_event(self_obj, 40, 787);
+   end
+   if (fixed_param == 787) then begin
+      float_msg(map_var(6), message_str(1308, 238), 7);
+      reg_anim_func(2, dude_obj);
+      reg_anim_func(1, 2);
+      reg_anim_animate(dude_obj, 11, -1);
+      reg_anim_func(3, 0);
+      float_msg(dude_obj, message_str(1308, 235), 2);
+      add_timer_event(self_obj, 40, 788);
+   end
+   if (fixed_param == 788) then begin
+      float_msg(dude_obj, message_str(1308, 238), 3);
+      float_msg(map_var(6), message_str(1308, 236), 2);
+      reg_anim_func(2, map_var(6));
+      reg_anim_func(1, 2);
+      reg_anim_animate(map_var(6), 16, -1);
+      reg_anim_obj_move_to_tile(map_var(6), 21720, -1);
+      reg_anim_func(3, 0);
+      add_timer_event(self_obj, 40, 789);
+   end
+   if (fixed_param == 789) then begin
+      float_msg(map_var(6), message_str(1308, 238), 2);
+      float_msg(dude_obj, message_str(1308, 237), 0);
+      set_map_var(5, 2);
+      add_timer_event(self_obj, 50, 790);
+   end
+   if (fixed_param == 790) then begin
+      fadeOut(600);
+      set_map_var(5, 3);
+      move_to(map_var(7), 0, 1);
+      set_global_var(718, 1);
+      set_global_var(727, 1);
+      set_map_music(4, "17arroyo");
+      game_ui_enable;
+      fadeIn(600);
+   end
+end
+
+procedure map_exit_p_proc begin
+   if (global_var(727) == 10) then begin
+      load_map("avtory", 1);
+   end
+end
+

@@ -1,0 +1,32 @@
+variable explorered;
+
+procedure start;
+procedure spatial_p_proc;
+procedure map_enter_p_proc;
+
+
+procedure start begin
+end
+
+procedure spatial_p_proc begin
+   if ((source_obj == dude_obj) and (tile_distance_objs(self_obj, source_obj) <= 2) and (get_critter_stat(dude_obj, 1) >= random(6, 8)) and (explorered == 0)) then begin
+      set_local_var(0, create_object_sid(571, tile_num(self_obj), elevation(dude_obj), -1));
+      if (random(0, 1) == 1) then begin
+         add_obj_to_inven(local_var(0), create_object_sid(random(541, 543), 1, 0, -1));
+      end
+      display_msg(message_str(1308, random(150, 155)));
+      explorered := 1;
+   end
+   else begin
+      if ((obj_type(source_obj) == 1) and (tile_distance_objs(self_obj, source_obj) <= 1)) then begin
+         critter_dmg(source_obj, random(20, 40), 2);
+      end
+   end
+end
+
+procedure map_enter_p_proc begin
+   if (days_since_visited >= random(10, 40)) then begin
+      add_obj_to_inven(local_var(0), create_object_sid(random(541, 543), 1, 0, -1));
+   end
+end
+

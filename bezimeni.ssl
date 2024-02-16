@@ -1,0 +1,1229 @@
+variable ProtoOfItemGiven;
+variable ValueOfRollCheck := 1;
+variable Scenery_Creation;
+variable Scenery_Creation_Hex;
+variable Scenery_Creation_Count;
+variable Temp_Scenery_Creation_Hex;
+variable Scenery_Creation_Ptr;
+variable How_Many_Party_Members_Are_Injured;
+variable How_Many_Party_Members_Armed;
+variable PartyHealingItem;
+
+procedure checkPartyMembersNearDoor;
+
+variable global_temp;
+variable dest_tile;
+variable step_tile;
+variable in_dialog;
+variable forced_node;
+variable restock_amt;
+variable restock_obj;
+variable restock_trash;
+variable removed_qty;
+variable PartyMemberBackground := -1;
+
+procedure Check_Next_Third_Of_Areas;
+procedure Check_Second_Third_Of_Areas;
+procedure Check_Final_Third_Of_Areas;
+
+variable the_range := 5;
+variable the_dist := 5;
+variable vopl;
+
+procedure start;
+procedure talk_p_proc;
+procedure Node010;
+procedure critter_p_proc;
+procedure Node020;
+procedure Node030;
+procedure Node040;
+procedure Node050;
+procedure NodeQ;
+procedure Node100;
+procedure Node110;
+procedure NodePARTY;
+procedure Node112;
+procedure Node120;
+procedure Node121;
+procedure DialogParty;
+procedure Weapon;
+procedure Remove_Weapon;
+procedure Choose_Weapon;
+procedure Healing;
+procedure Waiting;
+procedure Distance;
+procedure DialogZhdet;
+procedure Remove_armor;
+procedure DistanceClose;
+procedure DistanceFar;
+procedure DistanceMedium;
+procedure JoinAgain;
+procedure description_p_proc;
+procedure DialogParty2;
+procedure Razgovor;
+procedure Anekdot;
+procedure Mesto;
+procedure Weapon_pow;
+procedure Weapon_kol;
+procedure Weapon_energ;
+procedure Weapon_strelk;
+
+variable In_Timed_Event;
+
+procedure timed_event_p_proc;
+procedure Memory;
+procedure push_p_proc;
+procedure win_health_danger;
+procedure close_win_health_danger;
+procedure Memory2;
+procedure Memory3;
+procedure Node200;
+procedure NodeGoodbuy;
+procedure Node998;
+procedure Node999;
+
+
+procedure checkPartyMembersNearDoor begin
+   if (party_member_obj(16777278) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777278)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777376) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777376)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777377) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777377)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777305) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777305)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777313) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777313)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777323) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777323)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777352) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777352)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777378) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777378)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777368) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777368)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777379) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777379)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777380) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777380)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777295) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777295)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777381) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777381)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777407) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777407)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777411) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777411)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777412) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777412)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777413) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777413)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777481) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777481)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777558) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777558)) <= 5) then begin
+         return 1;
+      end
+   end
+   if (party_member_obj(16777600) != 0) then begin
+      if (tile_distance_objs(self_obj, party_member_obj(16777600)) <= 5) then begin
+         return 1;
+      end
+   end
+   return 0;
+end
+
+procedure Check_Next_Third_Of_Areas begin
+   if (metarule(46, 0) == 16) then begin
+      PartyMemberBackground := 15;
+   end
+   else begin
+      if (metarule(46, 0) == 17) then begin
+         PartyMemberBackground := 16;
+      end
+      else begin
+         if (metarule(46, 0) == 18) then begin
+            PartyMemberBackground := 16;
+         end
+         else begin
+            if (metarule(46, 0) == 19) then begin
+               PartyMemberBackground := 16;
+            end
+            else begin
+               if (metarule(46, 0) == 20) then begin
+               end
+               else begin
+                  if (metarule(46, 0) == 21) then begin
+                     PartyMemberBackground := 16;
+                  end
+                  else begin
+                     if (metarule(46, 0) == 22) then begin
+                        PartyMemberBackground := 16;
+                     end
+                     else begin
+                        if (metarule(46, 0) == 23) then begin
+                           PartyMemberBackground := 14;
+                        end
+                        else begin
+                           if (metarule(46, 0) == 24) then begin
+                              PartyMemberBackground := 16;
+                           end
+                           else begin
+                              if (metarule(46, 0) == 25) then begin
+                                 if (cur_map_index == 92) then begin
+                                    if (elevation(self_obj) == 0) then begin
+                                       PartyMemberBackground := 16;
+                                    end
+                                    else begin
+                                       PartyMemberBackground := 4;
+                                    end
+                                 end
+                                 else begin
+                                    PartyMemberBackground := 14;
+                                 end
+                              end
+                              else begin
+                                 if (metarule(46, 0) == 26) then begin
+                                    PartyMemberBackground := 16;
+                                 end
+                                 else begin
+                                    if (metarule(46, 0) == 27) then begin
+                                       if (elevation(self_obj) == 1) then begin
+                                          PartyMemberBackground := 14;
+                                       end
+                                       else begin
+                                          PartyMemberBackground := 16;
+                                       end
+                                    end
+                                    else begin
+                                       if (metarule(46, 0) == 28) then begin
+                                          PartyMemberBackground := 4;
+                                       end
+                                       else begin
+                                          if (metarule(46, 0) == 29) then begin
+                                             if (elevation(self_obj) == 1) then begin
+                                                PartyMemberBackground := 14;
+                                             end
+                                             else begin
+                                                PartyMemberBackground := 16;
+                                             end
+                                          end
+                                          else begin
+                                             if (metarule(46, 0) == 30) then begin
+                                                if (elevation(self_obj) == 1) then begin
+                                                   PartyMemberBackground := 14;
+                                                end
+                                                else begin
+                                                   PartyMemberBackground := 16;
+                                                end
+                                             end
+                                             else begin
+                                                call Check_Second_Third_Of_Areas();
+                                             end
+                                          end
+                                       end
+                                    end
+                                 end
+                              end
+                           end
+                        end
+                     end
+                  end
+               end
+            end
+         end
+      end
+   end
+end
+
+procedure Check_Second_Third_Of_Areas begin
+   if (metarule(46, 0) == 31) then begin
+      PartyMemberBackground := 16;
+   end
+   else begin
+      if (metarule(46, 0) == 32) then begin
+         PartyMemberBackground := 16;
+      end
+      else begin
+         if (metarule(46, 0) == 33) then begin
+            PartyMemberBackground := 16;
+         end
+         else begin
+            if (metarule(46, 0) == 34) then begin
+               PartyMemberBackground := 16;
+            end
+            else begin
+               if (metarule(46, 0) == 35) then begin
+                  PartyMemberBackground := 16;
+               end
+               else begin
+                  if (metarule(46, 0) == 36) then begin
+                     PartyMemberBackground := 16;
+                  end
+                  else begin
+                     if (metarule(46, 0) == 37) then begin
+                        PartyMemberBackground := 16;
+                     end
+                     else begin
+                        if (metarule(46, 0) == 38) then begin
+                           PartyMemberBackground := 16;
+                        end
+                        else begin
+                           if (metarule(46, 0) == 39) then begin
+                              PartyMemberBackground := 16;
+                           end
+                           else begin
+                              if (metarule(46, 0) == 40) then begin
+                                 PartyMemberBackground := 16;
+                              end
+                              else begin
+                                 if (metarule(46, 0) == 18) then begin
+                                    PartyMemberBackground := 16;
+                                 end
+                                 else begin
+                                    if (metarule(46, 0) == 41) then begin
+                                       PartyMemberBackground := 16;
+                                    end
+                                    else begin
+                                       if (metarule(46, 0) == 42) then begin
+                                          PartyMemberBackground := 16;
+                                       end
+                                       else begin
+                                          if (metarule(46, 0) == 43) then begin
+                                             PartyMemberBackground := 16;
+                                          end
+                                          else begin
+                                             if (metarule(46, 0) == 44) then begin
+                                                PartyMemberBackground := 16;
+                                             end
+                                             else begin
+                                                call Check_Final_Third_Of_Areas();
+                                             end
+                                          end
+                                       end
+                                    end
+                                 end
+                              end
+                           end
+                        end
+                     end
+                  end
+               end
+            end
+         end
+      end
+   end
+end
+
+procedure Check_Final_Third_Of_Areas begin
+   if (metarule(46, 0) == 45) then begin
+      if (elevation(self_obj) == 1) then begin
+         PartyMemberBackground := 14;
+      end
+      else begin
+         PartyMemberBackground := 16;
+      end
+   end
+   else begin
+      if (metarule(46, 0) == 46) then begin
+         if (elevation(self_obj) == 1) then begin
+            PartyMemberBackground := 14;
+         end
+         else begin
+            PartyMemberBackground := 16;
+         end
+      end
+      else begin
+         if (metarule(46, 0) == 47) then begin
+            if (elevation(self_obj) == 1) then begin
+               PartyMemberBackground := 14;
+            end
+            else begin
+               PartyMemberBackground := 16;
+            end
+         end
+         else begin
+            if (metarule(46, 0) == 48) then begin
+               PartyMemberBackground := 3;
+            end
+         end
+      end
+   end
+end
+
+procedure start begin
+end
+
+procedure talk_p_proc begin
+   variable LVar0 := 13;
+   variable LVar1 := 21;
+   variable LVar2 := 0;
+   variable LVar3 := 0;
+   variable LVar4 := 16777228;
+   LVar2 := obj_pid(critter_inven_obj(self_obj, 0));
+   if ((obj_pid(critter_inven_obj(self_obj, 0)) == 3) or (obj_pid(critter_inven_obj(self_obj, 0)) == 232) or (obj_pid(critter_inven_obj(self_obj, 0)) == 551) or (obj_pid(critter_inven_obj(self_obj, 0)) == 593)) then begin
+      LVar0 := 14;
+   end
+   if ((obj_pid(critter_inven_obj(self_obj, 0)) == 348) or (obj_pid(critter_inven_obj(self_obj, 0)) == 349)) then begin
+      LVar0 := 7;
+   end
+   if (obj_pid(critter_inven_obj(self_obj, 0)) == 0) then begin
+      LVar0 := 13;
+   end
+   if (metarule(46, 0) == 49) then begin
+      if ((cur_map_index == 151) or ((cur_map_index == 154) and (elevation(self_obj) == 1))) then begin
+         LVar1 := 13;
+      end
+      else begin
+         LVar1 := 21;
+      end
+   end
+   if (metarule(46, 0) == 51) then begin
+      if ((cur_map_index == 158) and (elevation(self_obj) == 1)) then begin
+         LVar1 := 14;
+      end
+      if ((cur_map_index == 158) and (elevation(self_obj) == 2)) then begin
+         LVar1 := 6;
+      end
+      else begin
+         LVar1 := 4;
+      end
+   end
+   if (metarule(46, 0) == 52) then begin
+      if ((cur_map_index == 161) and (elevation(self_obj) == 1)) then begin
+         LVar1 := 13;
+      end
+      else begin
+         LVar1 := 7;
+      end
+   end
+   if (metarule(46, 0) == 53) then begin
+      LVar1 := 2;
+   end
+   if (metarule(46, 0) == 54) then begin
+      if (elevation(self_obj) == 1) then begin
+         LVar1 := 10;
+      end
+      else begin
+         LVar1 := 20;
+      end
+   end
+   if (metarule(46, 0) == 55) then begin
+      if (elevation(self_obj) == 0) then begin
+         LVar1 := 20;
+      end
+      else begin
+         LVar1 := 10;
+      end
+   end
+   if ((metarule(46, 0) == 55) or (metarule(46, 0) == 56)) then begin
+      if (elevation(self_obj) == 0) then begin
+         LVar1 := 16;
+      end
+      else begin
+         LVar1 := 10;
+      end
+   end
+   if (metarule(46, 0) == 57) then begin
+      if (elevation(self_obj) == 0) then begin
+         LVar1 := 21;
+      end
+      else begin
+         LVar1 := 13;
+      end
+   end
+   if (metarule(46, 0) == 58) then begin
+      if ((cur_map_index == 175) or (cur_map_index == 187)) then begin
+         LVar1 := 22;
+      end
+      else begin
+         LVar1 := 15;
+      end
+   end
+   if ((metarule(46, 0) == 59) or (metarule(46, 0) == 60) or (metarule(46, 0) == 62)) then begin
+      LVar1 := 16;
+   end
+   if (metarule(46, 0) == 61) then begin
+      LVar1 := 2;
+   end
+   if ((LVar1 == 0) or (LVar1 == -1)) then begin
+      LVar1 := PartyMemberBackground;
+   end
+   if (global_var(697) == 10) then begin
+      start_gdialog(1332, self_obj, -1, LVar0, LVar1);
+      gsay_start;
+      call Node200();
+      gsay_end;
+      end_dialogue;
+   end
+   else begin
+      if (global_var(697) == 3) then begin
+         start_gdialog(1332, self_obj, -1, LVar0, LVar1);
+         gsay_start;
+         call DialogParty();
+         gsay_end;
+         end_dialogue;
+      end
+      else begin
+         if (global_var(697) == 4) then begin
+            start_gdialog(1332, self_obj, -1, LVar0, LVar1);
+            gsay_start;
+            call DialogZhdet();
+            gsay_end;
+            end_dialogue;
+         end
+         else begin
+            if (local_var(1) == 0) then begin
+               start_gdialog(1332, self_obj, -1, LVar0, LVar1);
+               gsay_start;
+               call Node010();
+               gsay_end;
+               end_dialogue;
+            end
+            else begin
+               start_gdialog(1332, self_obj, -1, LVar0, LVar1);
+               gsay_start;
+               call Node100();
+               gsay_end;
+               end_dialogue;
+            end
+         end
+      end
+   end
+   if (critter_inven_obj(self_obj, 0) != 0) then begin
+      LVar2 := obj_pid(critter_inven_obj(self_obj, 0));
+      if ((LVar2 == 1) or (LVar2 == 379) or (LVar2 == 547)) then begin
+         LVar3 := 16777228;
+      end
+      else begin
+         if ((LVar2 == 74) or (LVar2 == 265) or (LVar2 == 550)) then begin
+            LVar3 := 16777229;
+         end
+         else begin
+            if (LVar2 == 113) then begin
+               LVar3 := 16777247;
+            end
+            else begin
+               if ((LVar2 == 2) or (LVar2 == 380) or (LVar2 == 240)) then begin
+                  LVar3 := 16777230;
+               end
+               else begin
+                  if ((LVar2 == 17) or (LVar2 == 381) or (LVar2 == 239) or (LVar2 == 548) or (LVar2 == 549)) then begin
+                     LVar3 := 16777226;
+                  end
+                  else begin
+                     if ((LVar2 == 3) or (LVar2 == 232) or (LVar2 == 551) or (LVar2 == 593)) then begin
+                        LVar3 := 16777217;
+                     end
+                     else begin
+                        if ((LVar2 == 348) or (LVar2 == 349)) then begin
+                           LVar3 := 16777287;
+                        end
+                     end
+                  end
+               end
+            end
+         end
+      end
+      metarule3(107, self_obj, LVar3, 0);
+   end
+   else begin
+      LVar3 := LVar4;
+      metarule3(107, self_obj, LVar3, 0);
+   end
+end
+
+procedure Node010 begin
+   gsay_reply(1332, 1);
+   gsay_option(1332, 11, Node020, -1);
+   gsay_option(1332, 12, Node999, -1);
+end
+
+procedure critter_p_proc begin
+   if (local_var(0) == 1) then begin
+      set_local_var(0, 0);
+      attack_setup(self_obj, dude_obj);
+   end
+   if ((global_var(653) != 0) and (global_var(697) == 3)) then begin
+      party_remove(self_obj);
+      set_global_var(697, 10);
+      dialogue_system_enter;
+   end
+   if (global_var(697) == 3) then begin
+      if (tile_distance_objs(self_obj, dude_obj) > the_range) then begin
+         if (anim_busy(self_obj) == 0) then begin
+            dest_tile := tile_num_in_direction(tile_num_in_direction(tile_num(dude_obj), rotation_to_tile(tile_num(dude_obj), tile_num(self_obj)), the_dist), random(0, 5), random(0, 2));
+            if (tile_distance_objs(self_obj, dude_obj) > (the_range + 2)) then begin
+               animate_move_obj_to_tile(self_obj, dest_tile, 1);
+            end
+            else begin
+               animate_move_obj_to_tile(self_obj, dest_tile, 0);
+            end
+         end
+         else begin
+            if (tile_distance(tile_num(self_obj), tile_num(dude_obj)) < tile_distance(tile_num(self_obj), dest_tile)) then begin
+               reg_anim_func(2, self_obj);
+            end
+         end
+      end
+   end
+   if ((global_var(697) == 3) and (random(0, 400) == 1) and (In_Timed_Event == 0)) then begin
+      In_Timed_Event := 1;
+      add_timer_event(self_obj, game_ticks(random(10, 100)), 1);
+   end
+   if ((get_critter_stat(self_obj, 35) < (get_critter_stat(self_obj, 7) / 2)) and (get_critter_stat(self_obj, 35) >= 1) and (local_var(5) == 0)) then begin
+      call win_health_danger();
+      set_local_var(5, 1);
+   end
+   if ((get_critter_stat(self_obj, 35) > (get_critter_stat(self_obj, 7) / 2)) and (local_var(5) == 1)) then begin
+      set_local_var(5, 0);
+   end
+end
+
+procedure Node020 begin
+   gsay_reply(1332, 2);
+   gsay_option(1332, 21, Node030, -1);
+   gsay_option(1332, 22, Node999, -1);
+end
+
+procedure Node030 begin
+   gsay_reply(1332, 3);
+   gsay_option(1332, 31, Node040, -1);
+   gsay_option(1332, 32, Node999, -1);
+end
+
+procedure Node040 begin
+   gsay_reply(1332, 4);
+   gsay_option(1332, 41, Node050, -1);
+end
+
+procedure Node050 begin
+   set_local_var(1, 1);
+   gsay_reply(1332, 5);
+   gsay_option(1332, 51, NodeQ, -1);
+   gsay_option(1332, 52, Node999, -1);
+end
+
+procedure NodeQ begin
+   set_global_var(697, 1);
+end
+
+procedure Node100 begin
+   if (global_var(697) == 1) then begin
+      call Node110();
+   end
+   else begin
+      call Node120();
+   end
+end
+
+procedure Node110 begin
+   gsay_reply(1332, 10);
+   if (obj_carrying_pid_obj(dude_obj, 641) != 0) then begin
+      gsay_option(1332, 101, NodePARTY, -1);
+   end
+   gsay_option(1332, 102, Node112, -1);
+end
+
+procedure NodePARTY begin
+   rm_obj_from_inven(dude_obj, obj_carrying_pid_obj(dude_obj, 641));
+   set_global_var(697, 2);
+   give_exp_points(1000);
+   display_msg(message_str(1308, 140) + 1000 + message_str(1308, 141));
+   party_add(self_obj);
+   critter_add_trait(self_obj, 1, 6, 0);
+   set_global_var(697, 3);
+   gsay_reply(1332, 1010);
+   gsay_option(1308, random(1000, 1003), Node999, -1);
+end
+
+procedure Node112 begin
+   gsay_reply(1332, 1020);
+   gsay_option(1308, random(1000, 1003), Node999, -1);
+end
+
+procedure Node120 begin
+   gsay_reply(1332, 1);
+   gsay_option(1332, 121, Node121, -1);
+   gsay_option(1332, 12, Node999, -1);
+end
+
+procedure Node121 begin
+   gsay_reply(1332, 1210);
+   gsay_option(1332, 51, NodeQ, -1);
+   gsay_option(1332, 52, Node999, -1);
+end
+
+procedure DialogParty begin
+   gsay_reply(1332, 2000);
+   gsay_option(1332, 2100, Weapon, -1);
+   if (critter_inven_obj(self_obj, 0) != 0) then begin
+      gsay_option(1332, 2200, Remove_armor, -1);
+   end
+   gsay_option(1332, 2300, Healing, -1);
+   gsay_option(1332, 5001, DialogParty2, -1);
+   gsay_option(1332, 2500, Node999, -1);
+end
+
+procedure Weapon begin
+   gsay_reply(1332, 2000);
+   if ((critter_inven_obj(self_obj, 1) != 0) or (critter_inven_obj(self_obj, 2) != 0)) then begin
+      gsay_option(1332, 2110, Remove_Weapon, -1);
+      gsay_option(1332, 2120, Choose_Weapon, -1);
+   end
+   else begin
+      gsay_option(1332, 2130, Choose_Weapon, -1);
+   end
+   gsay_option(1332, 2500, DialogParty, -1);
+end
+
+procedure Remove_Weapon begin
+   gsay_reply(1332, 3000);
+   gsay_option(1332, 4110, DialogParty, -1);
+   metarule(43, self_obj);
+end
+
+procedure Choose_Weapon begin
+   gsay_reply(1332, 5000);
+   gsay_option(1332, 5100, Weapon_pow, -1);
+   gsay_option(1332, 5200, Weapon_kol, -1);
+   gsay_option(1332, 5300, Weapon_energ, -1);
+   gsay_option(1332, 5400, Weapon_strelk, -1);
+   gsay_option(1332, 5500, DialogParty, -1);
+end
+
+procedure Healing begin
+   if (get_critter_stat(self_obj, 35) < get_critter_stat(self_obj, 7)) then begin
+      if (obj_carrying_pid_obj(self_obj, 40)) then begin
+         use_obj_on_obj(obj_carrying_pid_obj(self_obj, 40), self_obj);
+      end
+      else begin
+         if (obj_carrying_pid_obj(self_obj, 144)) then begin
+            use_obj_on_obj(obj_carrying_pid_obj(self_obj, 144), self_obj);
+         end
+      end
+   end
+   gsay_reply(1332, 2210);
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure Waiting begin
+   set_local_var(2, game_time);
+   party_remove(self_obj);
+   set_global_var(697, 4);
+   gsay_reply(1332, 4110);
+   gsay_option(1332, 3100, Node999, -1);
+end
+
+procedure Distance begin
+   gsay_reply(1332, 2000);
+   gsay_option(1332, 2610, DistanceClose, -1);
+   gsay_option(1332, 2620, DistanceFar, -1);
+   gsay_option(1332, 2630, DistanceMedium, -1);
+   gsay_option(1332, 2500, DialogParty, -1);
+end
+
+procedure DialogZhdet begin
+   gsay_reply(1332, 2000);
+   gsay_option(1332, 4000, JoinAgain, -1);
+   gsay_option(1332, 2500, Node999, -1);
+end
+
+procedure Remove_armor begin
+   variable LVar0 := 0;
+   LVar0 := critter_inven_obj(self_obj, 0);
+   rm_obj_from_inven(self_obj, LVar0);
+   add_obj_to_inven(self_obj, LVar0);
+   gsay_reply(1332, 2210);
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure DistanceClose begin
+   the_range := 3;
+   the_dist := 3;
+   gsay_reply(1332, 3000);
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure DistanceFar begin
+   the_range := 8;
+   the_dist := 8;
+   gsay_reply(1332, 3000);
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure DistanceMedium begin
+   the_range := 6;
+   the_dist := 6;
+   gsay_reply(1332, 3000);
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure JoinAgain begin
+   set_local_var(2, 0);
+   if (local_var(3) == 0) then begin
+      set_local_var(3, 6);
+   end
+   debug_msg("join party: " + obj_name(self_obj));
+   set_local_var(2, 0);
+   if (has_trait(1, self_obj, 6) != 0) then begin
+      set_local_var(4, has_trait(1, self_obj, 6));
+   end
+   critter_add_trait(self_obj, 1, 6, 0);
+   party_add(self_obj);
+   set_global_var(697, 3);
+   gsay_reply(1332, 4100);
+   gsay_option(1332, 5001, DialogParty, -1);
+end
+
+procedure description_p_proc begin
+   script_overrides;
+   if (global_var(774) < 10) then begin
+      display_msg(message_str(1332, random(10000, 10003)));
+   end
+   else begin
+      display_msg(message_str(1332, 10004));
+   end
+end
+
+procedure DialogParty2 begin
+   gsay_reply(1332, 2000);
+   gsay_option(1332, 2400, Waiting, -1);
+   gsay_option(1332, 2600, Distance, -1);
+   gsay_option(1332, 2640, Razgovor, -1);
+   gsay_option(1332, 5002, DialogParty, -1);
+   gsay_option(1332, 2500, Node999, -1);
+end
+
+procedure Razgovor begin
+   gsay_reply(1332, 2700);
+   gsay_option(1332, 2740, Anekdot, -1);
+   gsay_option(1332, 2710, Mesto, -1);
+   if (global_var(774) != 10) then begin
+      gsay_option(1332, 2730, Memory, -1);
+   end
+   gsay_option(1332, 5002, DialogParty, -1);
+   gsay_option(1332, 2500, Node999, -1);
+end
+
+procedure Anekdot begin
+   gsay_reply(1332, random(2800, 2810));
+   gsay_option(1332, 2701, Razgovor, -1);
+end
+
+procedure Mesto begin
+   if (metarule(46, 0) == 49) then begin
+      gsay_reply(1332, 2715);
+   end
+   else begin
+      if (metarule(46, 0) == 1) then begin
+         gsay_reply(1332, 2712);
+      end
+      else begin
+         if (metarule(46, 0) == 2) then begin
+            gsay_reply(1332, 2713);
+         end
+         else begin
+            if (metarule(46, 0) == 4) then begin
+               gsay_reply(1332, 2714);
+            end
+            else begin
+               gsay_reply(1332, 2716);
+            end
+         end
+      end
+   end
+   gsay_option(1332, 2701, Razgovor, -1);
+   gsay_option(1332, 2500, Node999, -1);
+end
+
+procedure Weapon_pow begin
+   variable LVar0 := 0;
+   if (obj_carrying_pid_obj(self_obj, 11) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 11);
+   end
+   if (obj_carrying_pid_obj(self_obj, 13) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 13);
+   end
+   if (obj_carrying_pid_obj(self_obj, 25) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 25);
+   end
+   if (obj_carrying_pid_obj(self_obj, 534) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 534);
+   end
+   if (obj_carrying_pid_obj(self_obj, 565) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 565);
+   end
+   if (obj_carrying_pid_obj(self_obj, 567) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 567);
+   end
+   if (obj_carrying_pid_obj(self_obj, 568) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 568);
+   end
+   if (LVar0 != 0) then begin
+      gsay_reply(1332, message_str(1332, 5110) + obj_name(LVar0) + message_str(1332, 5120));
+      wield_obj_critter(self_obj, LVar0);
+   end
+   else begin
+      gsay_reply(1332, 5130);
+   end
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure Weapon_kol begin
+   variable LVar0 := 0;
+   if (obj_carrying_pid_obj(self_obj, 4) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 4);
+   end
+   if (obj_carrying_pid_obj(self_obj, 5) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 5);
+   end
+   if (obj_carrying_pid_obj(self_obj, 6) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 6);
+   end
+   if (obj_carrying_pid_obj(self_obj, 7) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 7);
+   end
+   if (obj_carrying_pid_obj(self_obj, 20) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 20);
+   end
+   if (obj_carrying_pid_obj(self_obj, 236) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 236);
+   end
+   if (obj_carrying_pid_obj(self_obj, 292) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 292);
+   end
+   if (LVar0 != 0) then begin
+      gsay_reply(1332, message_str(1332, 5110) + obj_name(LVar0) + message_str(1332, 5120));
+      wield_obj_critter(self_obj, LVar0);
+   end
+   else begin
+      gsay_reply(1332, 5130);
+   end
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure Weapon_energ begin
+   variable LVar0 := 0;
+   if (obj_carrying_pid_obj(self_obj, 16) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 16);
+   end
+   if (obj_carrying_pid_obj(self_obj, 24) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 24);
+   end
+   if (obj_carrying_pid_obj(self_obj, 15) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 15);
+   end
+   if (obj_carrying_pid_obj(self_obj, 118) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 118);
+   end
+   if (obj_carrying_pid_obj(self_obj, 396) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 396);
+   end
+   if (obj_carrying_pid_obj(self_obj, 397) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 397);
+   end
+   if (obj_carrying_pid_obj(self_obj, 555) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 555);
+   end
+   if (obj_carrying_pid_obj(self_obj, 402) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 402);
+   end
+   if (obj_carrying_pid_obj(self_obj, 28) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 28);
+   end
+   if (obj_carrying_pid_obj(self_obj, 583) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 583);
+   end
+   if (obj_carrying_pid_obj(self_obj, 563) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 563);
+   end
+   if (obj_carrying_pid_obj(self_obj, 556) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 556);
+   end
+   if (LVar0 != 0) then begin
+      gsay_reply(1332, message_str(1332, 5110) + obj_name(LVar0) + message_str(1332, 5120));
+      wield_obj_critter(self_obj, LVar0);
+   end
+   else begin
+      gsay_reply(1332, 5130);
+   end
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure Weapon_strelk begin
+   variable LVar0 := 0;
+   if (obj_carrying_pid_obj(self_obj, 9) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 9);
+   end
+   if (obj_carrying_pid_obj(self_obj, 10) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 10);
+   end
+   if (obj_carrying_pid_obj(self_obj, 18) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 18);
+   end
+   if (obj_carrying_pid_obj(self_obj, 23) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 23);
+   end
+   if (obj_carrying_pid_obj(self_obj, 94) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 94);
+   end
+   if (obj_carrying_pid_obj(self_obj, 143) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 143);
+   end
+   if (obj_carrying_pid_obj(self_obj, 241) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 241);
+   end
+   if (obj_carrying_pid_obj(self_obj, 354) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 354);
+   end
+   if (obj_carrying_pid_obj(self_obj, 299) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 299);
+   end
+   if (obj_carrying_pid_obj(self_obj, 581) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 581);
+   end
+   if (obj_carrying_pid_obj(self_obj, 598) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 598);
+   end
+   if (obj_carrying_pid_obj(self_obj, 582) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 582);
+   end
+   if (obj_carrying_pid_obj(self_obj, 592) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 592);
+   end
+   if (obj_carrying_pid_obj(self_obj, 597) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 597);
+   end
+   if (obj_carrying_pid_obj(self_obj, 561) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 561);
+   end
+   if (obj_carrying_pid_obj(self_obj, 355) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 355);
+   end
+   if (obj_carrying_pid_obj(self_obj, 599) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 599);
+   end
+   if (obj_carrying_pid_obj(self_obj, 350) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 350);
+   end
+   if (obj_carrying_pid_obj(self_obj, 587) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 587);
+   end
+   if (obj_carrying_pid_obj(self_obj, 563) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 563);
+   end
+   if (obj_carrying_pid_obj(self_obj, 553) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 553);
+   end
+   if (obj_carrying_pid_obj(self_obj, 532) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 532);
+   end
+   if (obj_carrying_pid_obj(self_obj, 588) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 588);
+   end
+   if (obj_carrying_pid_obj(self_obj, 552) != 0) then begin
+      LVar0 := obj_carrying_pid_obj(self_obj, 552);
+   end
+   if (LVar0 != 0) then begin
+      gsay_reply(1332, message_str(1332, 5110) + obj_name(LVar0) + message_str(1332, 5120));
+      wield_obj_critter(self_obj, LVar0);
+   end
+   else begin
+      gsay_reply(1332, 5130);
+   end
+   gsay_option(1332, 4110, DialogParty, -1);
+end
+
+procedure timed_event_p_proc begin
+   if (fixed_param == 1) then begin
+      float_msg(self_obj, message_str(1332, random(11000, 11008)), 0);
+      In_Timed_Event := 0;
+   end
+end
+
+procedure Memory begin
+   if ((global_var(774) == 1) or (global_var(774) == 0)) then begin
+      set_global_var(774, 1);
+      gsay_reply(1332, 2731);
+      gsay_option(1332, 27310, Razgovor, -1);
+      if (obj_carrying_pid_obj(dude_obj, 649) != 0) then begin
+         gsay_option(1332, 27311, Memory2, -1);
+      end
+   end
+   if (global_var(774) == 2) then begin
+      if ((game_time_in_seconds - local_var(6)) <= 432000) then begin
+         gsay_reply(1332, 2732);
+         gsay_option(1332, 27320, Razgovor, -1);
+      end
+      else begin
+         gsay_reply(1332, 2733);
+         gsay_option(1332, 27330, Memory3, -1);
+      end
+   end
+end
+
+procedure push_p_proc begin
+   float_msg(self_obj, message_str(1332, random(13000, 13004)), 0);
+end
+
+procedure win_health_danger begin
+   variable LVar0 := 0;
+   variable LVar1 := 0;
+   variable LVar2 := 0;
+   variable LVar3 := 0;
+   variable LVar4 := 0;
+   variable LVar5 := 0;
+   variable LVar6 := 0;
+   variable LVar7 := 0;
+   variable LVar8 := 0;
+   LVar4 := 152;
+   while (LVar4 > (122 + (LVar0 * 6))) do begin
+      LVar0 := LVar0 + 1;
+   end
+   LVar5 := 128;
+   while (LVar5 > (122 + (LVar2 * 6))) do begin
+      LVar2 := LVar2 + 1;
+   end
+   createWin("fol", 0, 0, 122 + (6 * LVar0), 122 + (6 * LVar2));
+   selectWin("fol");
+   displayGfx("PCX\\fol11.pcx", 0, 0, 61, 77);
+   while (LVar1 < LVar0) do begin
+      displayGfx("PCX\\fol12.pcx", 61 + (6 * LVar1), 0, 6, 77);
+      LVar1 := LVar1 + 1;
+   end
+   LVar1 := 0;
+   displayGfx("PCX\\fol13.pcx", 61 + (6 * LVar0), 0, 61, 77);
+   while (LVar3 < LVar2) do begin
+      displayGfx("PCX\\fol21.pcx", 0, 77 + (6 * LVar3), 61, 6);
+      while (LVar1 < LVar0) do begin
+         displayGfx("PCX\\fol22.pcx", 61 + (6 * LVar1), 77 + (6 * LVar3), 6, 6);
+         LVar1 := LVar1 + 1;
+      end
+      LVar1 := 0;
+      displayGfx("PCX\\fol23.pcx", 61 + (6 * LVar0), 77 + (6 * LVar3), 61, 6);
+      LVar3 := LVar3 + 1;
+   end
+   LVar3 := 0;
+   displayGfx("PCX\\fol31.pcx", 0, 77 + (6 * LVar2), 61, 45);
+   while (LVar1 < LVar0) do begin
+      displayGfx("PCX\\fol32.pcx", 61 + (6 * LVar1), 77 + (6 * LVar2), 6, 45);
+      LVar1 := LVar1 + 1;
+   end
+   LVar1 := 0;
+   displayGfx("PCX\\fol33.pcx", 61 + (6 * LVar0), 77 + (6 * LVar2), 61, 45);
+   addButton("btn1", 2, 122 + (6 * LVar2) - 14, 21, 13);
+   addButtonGfx("btn1", "PCX\\bnf1off.pcx", "PCX\\bnf1off.pcx", "PCX\\bnf1off.pcx");
+   addButtonProc("btn1", Node999, Node999, Node999, Node999);
+   addButton("btn2", 38, 122 + (6 * LVar2) - 14, 21, 13);
+   addButtonGfx("btn2", "PCX\\bnf1off.pcx", "PCX\\bnf1off.pcx", "PCX\\bnf1off.pcx");
+   addButtonProc("btn2", Node999, Node999, Node999, Node999);
+   setTextColor(1.00000, 0.30000, 0.30000);
+   LVar6 := 13010;
+   LVar7 := 13013;
+   LVar8 := 0;
+   while (LVar6 <= LVar7) do begin
+      format(message_str(1332, LVar6), 12, 30 + LVar8, 96 + (6 * LVar0), 10, 0);
+      LVar6 := LVar6 + 1;
+      LVar8 := LVar8 + 15;
+   end
+   showWin;
+   call close_win_health_danger in (5);
+end
+
+procedure close_win_health_danger begin
+   deleteWin("fol");
+end
+
+procedure Memory2 begin
+   set_global_var(774, 2);
+   rm_obj_from_inven(dude_obj, obj_carrying_pid_obj(dude_obj, 649));
+   set_local_var(6, game_time_in_seconds);
+   gsay_reply(1332, 27312);
+   gsay_option(1332, 27313, Razgovor, -1);
+end
+
+procedure Memory3 begin
+   set_global_var(774, 10);
+   give_exp_points(random(120, 150) * floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2));
+   display_msg(message_str(1308, random(140, 143)) + (random(120, 150) * floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2)) + message_str(1308, 144));
+   gsay_reply(1332, 27331);
+   gsay_option(1332, 27332, Node999, -1);
+end
+
+procedure Node200 begin
+   gsay_reply(1332, 6000);
+   if (global_var(774) == 10) then begin
+      gsay_option(1332, 6002, NodeGoodbuy, -1);
+   end
+   else begin
+      gsay_option(1332, 6001, NodeGoodbuy, -1);
+   end
+end
+
+procedure NodeGoodbuy begin
+   set_obj_visibility(self_obj, 1);
+   move_to(self_obj, 1, 2);
+end
+
+procedure Node998 begin
+   set_local_var(0, 1);
+end
+
+procedure Node999 begin
+end
+
