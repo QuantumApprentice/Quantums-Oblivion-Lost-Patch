@@ -198,6 +198,16 @@ procedure map_enter_p_proc begin
             debug_msg("  mark_on_map(" + 61 + ")");
             mark_area_known(0, 61, 1);
          end
+         add_obj_to_inven(dude_obj, create_object_sid(587, 0, 0, -1));
+         add_obj_to_inven(dude_obj, create_object_sid(585, 0, 0, -1));
+         add_obj_to_inven(dude_obj, create_object_sid(585, 0, 0, -1));
+         add_obj_to_inven(dude_obj, create_object_sid(589, 0, 0, -1));
+         add_obj_to_inven(dude_obj, create_object_sid(589, 0, 0, -1));
+         add_obj_to_inven(dude_obj, create_object_sid(616, 0, 0, -1));
+         add_obj_to_inven(dude_obj, create_object_sid(551, 0, 0, -1));
+         add_obj_to_inven(dude_obj, create_object_sid(553, 0, 0, -1));
+         add_obj_to_inven(dude_obj, create_object_sid(603, 0, 0, -1));
+         item_caps_adjust(dude_obj, 50000 * floor((get_critter_stat(dude_obj, 3) + get_critter_stat(dude_obj, 6)) / 2));
       end
       play_gmovie(3);
       display_msg(message_str(27, 100));
