@@ -133,7 +133,7 @@ procedure start begin
 end
 
 procedure spatial_p_proc begin
-   if ((source_obj == dude_obj) and (local_var(0) == 0)) then begin
+   if ((source_obj == dude_obj) and ((global_var(765) bwand 4) != 0) and (local_var(0) == 0)) then begin
       set_local_var(0, 1);
       display_msg(message_str(1445, 6));
       play_gmovie(10);
