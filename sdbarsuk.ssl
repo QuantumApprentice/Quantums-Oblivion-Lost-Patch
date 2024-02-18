@@ -324,7 +324,7 @@ procedure Node014 begin
    LVar0 := floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2) * random(50, 70);
    give_exp_points(random(120, 160) * floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2));
    display_msg(message_str(1308, random(140, 143)) + (random(120, 160) * floor((get_critter_stat(dude_obj, 4) + get_critter_stat(dude_obj, 6)) / 2)) + message_str(1308, 144));
-   set_global_var(global_var(0), global_var(0) - random(40, 60));
+   set_global_var(0, global_var(0) - random(40, 60));       //fixed -Q
    set_global_var(760, 10);
    gsay_reply(1432, 140);
    gsay_option(1432, 141, Node015, -1);
