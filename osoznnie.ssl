@@ -511,3 +511,6 @@ procedure NodeEndOfGame begin
    add_timer_event(self_obj, 4, 999);
 end
 
+procedure map_enter_p_proc begin       // fixed -Q
+   set_map_var(1, self_obj);
+end
