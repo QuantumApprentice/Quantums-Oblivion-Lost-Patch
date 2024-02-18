@@ -159,11 +159,11 @@ procedure critter_p_proc begin
    end
    if ((global_var(728) == 4) or (global_var(729) == 4)) then begin
       if ((tile_distance(tile_num(self_obj), tile_num(dude_obj)) >= 3) and (tile_distance(tile_num(self_obj), tile_num(dude_obj)) < 6)) then begin
-         animate_move_obj_to_tile(self_obj, tile_num_in_direction(tile_num(dude_obj), rotation_to_tile(tile_num(dude_obj), tile_num(self_obj)), random(1, 2)), 0 bwor 16);
+         animate_move_obj_to_tile(self_obj, tile_num_in_direction(tile_num(dude_obj), rotation_to_tile(tile_num(dude_obj), tile_num(self_obj)), random(1, 2)), 0);
       end
       else begin
          if (tile_distance(tile_num(self_obj), tile_num(dude_obj)) >= 3) then begin
-            animate_move_obj_to_tile(self_obj, tile_num_in_direction(tile_num(dude_obj), rotation_to_tile(tile_num(dude_obj), tile_num(self_obj)), random(2, 4)), 1 bwor 16);
+            animate_move_obj_to_tile(self_obj, tile_num_in_direction(tile_num(dude_obj), rotation_to_tile(tile_num(dude_obj), tile_num(self_obj)), random(2, 4)), 1);
          end
       end
    end
@@ -241,16 +241,14 @@ procedure Node010 begin
 end
 
 procedure map_enter_p_proc begin
-   if (metarule(14, 0)) then begin
-      set_obj_visibility(self_obj, 0);
+   if ((global_var(729) >= 5) or (global_var(728) >= 5)) then begin
+      set_obj_visibility(self_obj, 1);
    end
    else begin
-      if (cur_map_index == 177) then begin
-         set_obj_visibility(self_obj, 0);
-      end
-      else begin
-         set_obj_visibility(self_obj, 1);
-      end
+      set_obj_visibility(self_obj, 0);
+   end
+   if (cur_map_index == 177) then begin
+      set_map_var(0, self_obj);
    end
 end
 
