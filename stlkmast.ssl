@@ -286,7 +286,7 @@ procedure destroy_p_proc begin
       set_global_var(700, global_var(700) + 1);
    end
    if (source_obj == dude_obj) then begin
-      set_global_var(global_var(0), global_var(0) - 10);
+      set_global_var(0, global_var(0) - 10);    //fixed -Q
    end
 end
 
