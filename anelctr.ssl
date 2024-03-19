@@ -1,3 +1,4 @@
+//random comment for testing
 variable ProtoOfItemGiven;
 variable ValueOfRollCheck := 1;
 variable Scenery_Creation;
