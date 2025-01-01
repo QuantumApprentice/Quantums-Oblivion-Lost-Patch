@@ -7,6 +7,10 @@ These should work with any older save files you have and prevent most crashes,
 but I make no guarantees about broken quests.
 I definitely would try installing this if town maps are crashing on you.
 
+# Installation
+Download the patch from here:
+https://www.moddb.com/mods/quantums-oblivion-lost-patch
+
 To install just copy the Patch002.dat file into the same folder as
 patch000.dat and patch001.dat.
 Right next to the Fallout 2 executable.
