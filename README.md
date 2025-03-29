@@ -1,8 +1,10 @@
 # Quantums-Oblivion-Lost-Patch
 
-I made this sucker for version 1.03 of Oblivion Lost,
-it probably won't work for other versions,
-but I have a link to the v1.03 installer below.
+
+*Update!
+This new version corresponds to the v1.04 release of Oblivion Lost.
+V1.04 has a butchered pipboy.msg file.
+This patch includes a fixed version which replaces the version found in Patch001.dat of Oblivion Lost v1.04.
 These should work with any older save files you have and prevent most crashes,
 but I make no guarantees about broken quests.
 I definitely would try installing this if town maps are crashing on you.
@@ -13,14 +15,16 @@ https://www.moddb.com/mods/quantums-oblivion-lost-patch
 
 To install just copy the Patch002.dat file into the same folder as
 patch000.dat and patch001.dat.
-Right next to the Fallout 2 executable.
+Right next to the executable, over-writing any existing Patch002.dat.
+(If you want to preserve an existing Patch002.dat and know what you're doing, you can rename this file to Patch003.dat, which will apply the fixes but leave the russian translation found in the Patch002.dat file that comes with v1.04)
+
 That's it, that's all you have to do.
 Congratulations! Now you're updated to the most recent patch.
 Hope you enjoy the game fixes, I'm going to call it "Quantum's Oblivion Lost Patch"
 when I upload it...what do you think? Too showy? or just right?
 
 
-### I fixed 4 specific things in this patch:
+### I fixed 5 specific things in this patch:
 1) Most of the crashes were caused by the "anomalies" scattered around the map.
    After a few weeks, (randomly selected for each one when you first enter a map),
    an anomaly will attempt to spawn an "Artifact" on the little glowing lines that
@@ -47,5 +51,11 @@ when I upload it...what do you think? Too showy? or just right?
    the one map preventing him from finishing this mod,
    the Enclave Detention center, now expands to the end of the hall
    where you can ride the elevator down to Mnemonics for the final quest.
+
+5) Oblivion Lost release v1.04 has a butchered pipboy.msg file located in
+   its patch001.dat file which wasn't there in the v1.03 release. This caused a
+   bug where opening the pipboy froze the game in place, and prevented you
+   from doing anything except exit.
+   I fixed it and added it to this version of Patch002.dat.
 
 
