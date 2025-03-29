@@ -16,6 +16,7 @@ https://www.moddb.com/mods/quantums-oblivion-lost-patch
 To install just copy the Patch002.dat file into the same folder as
 patch000.dat and patch001.dat.
 Right next to the executable, over-writing any existing Patch002.dat.
+
 (If you want to preserve an existing Patch002.dat and know what you're doing, 
 you can rename this file to Patch003.dat, which will apply the fixes but 
 leave the russian translation found in the Patch002.dat file that comes with v1.04)
